@@ -1,10 +1,25 @@
-import '../css/post.css';
+import "../css/post.css";
+import PropTypes from "prop-types";
 
-function Post(){
-    return <div className='post'>
-            <img src='https://www.livemint.com/lm-img/img/2023/06/10/600x338/CRICKET-AUS-IND-122_1686374354398_1686374561248.jpg'/>
-            <div className='news-text'><p>India end on 151/5 at Stumps on Day 2, all eyes today on Ajinkya Rahane</p></div>
+function Post({ image, content, url }) {
+  return (
+    <div className="post">
+      <img src={image} alt="Post Image" />
+
+      <div className="news-text">
+        <p>
+          {content}
+          <a href={url}> Read More </a>
+        </p>
+      </div>
     </div>
+  );
 }
+
+Post.propTypes = {
+  image: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+};
 
 export default Post;
